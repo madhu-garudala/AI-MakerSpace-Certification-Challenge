@@ -1,0 +1,52 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.local
+*.env
+
+# Data and models (large files, not for git)
+data/
+*.db
+*.sqlite
+*.csv
+*.pdf
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+*.log
+logs/
+
+# Streamlit
+.streamlit/secrets.toml

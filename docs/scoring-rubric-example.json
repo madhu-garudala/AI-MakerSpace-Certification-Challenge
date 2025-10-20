@@ -1,0 +1,403 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-10-16",
+  "description": "Scoring rubric for KidSafe Food Analyzer - defines safety scores and reasoning for ingredients",
+  
+  "category_weights": {
+    "allergen": 0.30,
+    "additive": 0.25,
+    "nutrition": 0.25,
+    "physical_safety": 0.20
+  },
+  
+  "allergens": {
+    "major_allergens": {
+      "description": "FDA FALCPA-defined major allergens",
+      "items": {
+        "peanuts": {
+          "score": 0,
+          "severity": "critical",
+          "reason": "Life-threatening allergy risk for sensitive individuals",
+          "source": "FDA FALCPA 2004"
+        },
+        "tree_nuts": {
+          "score": 0,
+          "severity": "critical",
+          "reason": "Life-threatening allergy risk, cross-reactivity with other nuts",
+          "source": "FDA FALCPA 2004",
+          "examples": ["almonds", "walnuts", "cashews", "pecans", "pistachios"]
+        },
+        "shellfish": {
+          "score": 0,
+          "severity": "critical",
+          "reason": "Life-threatening allergy risk, often persists into adulthood",
+          "source": "FDA FALCPA 2004",
+          "examples": ["shrimp", "crab", "lobster"]
+        },
+        "fish": {
+          "score": 0,
+          "severity": "critical",
+          "reason": "Severe allergic reactions possible",
+          "source": "FDA FALCPA 2004"
+        },
+        "milk": {
+          "score": 20,
+          "severity": "high",
+          "reason": "Common allergen, lactose intolerance in many children",
+          "source": "FDA FALCPA 2004"
+        },
+        "eggs": {
+          "score": 20,
+          "severity": "high",
+          "reason": "Common childhood allergen, often outgrown by age 5",
+          "source": "FDA FALCPA 2004"
+        },
+        "soy": {
+          "score": 30,
+          "severity": "moderate",
+          "reason": "Common allergen, may cause digestive issues",
+          "source": "FDA FALCPA 2004"
+        },
+        "wheat": {
+          "score": 30,
+          "severity": "moderate",
+          "reason": "Celiac disease trigger, gluten sensitivity",
+          "source": "FDA FALCPA 2004"
+        }
+      }
+    },
+    "emerging_allergens": {
+      "sesame": {
+        "score": 25,
+        "severity": "high",
+        "reason": "Recently added to major allergen list (2023)",
+        "source": "FDA FASTER Act 2021"
+      }
+    },
+    "precautionary_statements": {
+      "may_contain": {
+        "score_deduction": 10,
+        "reason": "Cross-contamination risk present"
+      },
+      "processed_in_facility": {
+        "score_deduction": 5,
+        "reason": "Lower cross-contamination risk but still present"
+      }
+    }
+  },
+  
+  "additives": {
+    "artificial_colors": {
+      "red_40": {
+        "score": 35,
+        "severity": "high",
+        "reason": "Linked to hyperactivity and behavioral issues in sensitive children",
+        "source": "Southampton Study 2007, FDA Review 2021",
+        "alternative_names": ["Allura Red AC", "E129"]
+      },
+      "yellow_5": {
+        "score": 35,
+        "severity": "high",
+        "reason": "Associated with hyperactivity, banned in Norway and Austria",
+        "source": "FDA Review 2021",
+        "alternative_names": ["Tartrazine", "E102"]
+      },
+      "yellow_6": {
+        "score": 35,
+        "severity": "high",
+        "reason": "Linked to hyperactivity, banned in Norway",
+        "source": "FDA Review 2021",
+        "alternative_names": ["Sunset Yellow", "E110"]
+      },
+      "blue_1": {
+        "score": 40,
+        "severity": "moderate",
+        "reason": "Potential allergic reactions, limited long-term studies",
+        "source": "FDA GRAS List",
+        "alternative_names": ["Brilliant Blue", "E133"]
+      },
+      "blue_2": {
+        "score": 40,
+        "severity": "moderate",
+        "reason": "Limited safety data for children",
+        "source": "FDA GRAS List",
+        "alternative_names": ["Indigo Carmine", "E132"]
+      }
+    },
+    "preservatives": {
+      "bht": {
+        "score": 40,
+        "severity": "moderate",
+        "reason": "Butylated Hydroxytoluene - controversial, banned in some countries",
+        "source": "FDA GRAS List",
+        "alternative_names": ["butylated hydroxytoluene"]
+      },
+      "bha": {
+        "score": 40,
+        "severity": "moderate",
+        "reason": "Butylated Hydroxyanisole - possible carcinogen, limited studies on children",
+        "source": "FDA GRAS List",
+        "alternative_names": ["butylated hydroxyanisole"]
+      },
+      "sodium_benzoate": {
+        "score": 50,
+        "severity": "moderate",
+        "reason": "When combined with vitamin C, may form benzene (carcinogen)",
+        "source": "FDA Advisory 2006"
+      },
+      "potassium_sorbate": {
+        "score": 70,
+        "severity": "low",
+        "reason": "Generally considered safe, minimal concerns",
+        "source": "FDA GRAS List"
+      },
+      "ascorbic_acid": {
+        "score": 95,
+        "severity": "minimal",
+        "reason": "Vitamin C, natural antioxidant, beneficial",
+        "source": "FDA GRAS List",
+        "alternative_names": ["vitamin c"]
+      }
+    },
+    "artificial_sweeteners": {
+      "aspartame": {
+        "score": 50,
+        "severity": "moderate",
+        "reason": "Controversial, phenylalanine concern for PKU patients",
+        "source": "FDA Approved Sweeteners List"
+      },
+      "sucralose": {
+        "score": 55,
+        "severity": "moderate",
+        "reason": "Limited long-term studies in children",
+        "source": "FDA Approved Sweeteners List"
+      },
+      "acesulfame_k": {
+        "score": 55,
+        "severity": "moderate",
+        "reason": "Minimal studies on developmental effects",
+        "source": "FDA Approved Sweeteners List"
+      },
+      "saccharin": {
+        "score": 45,
+        "severity": "moderate",
+        "reason": "Older sweetener with historical concerns",
+        "source": "FDA Approved Sweeteners List"
+      }
+    },
+    "natural_additives": {
+      "natural_flavors": {
+        "score": 70,
+        "severity": "low",
+        "reason": "Broad category, may contain allergens, generally safe",
+        "source": "FDA Regulation 21 CFR 101.22"
+      },
+      "citric_acid": {
+        "score": 90,
+        "severity": "minimal",
+        "reason": "Natural preservative, generally safe",
+        "source": "FDA GRAS List"
+      },
+      "lecithin": {
+        "score": 85,
+        "severity": "minimal",
+        "reason": "Emulsifier, usually soy-derived (allergen consideration)",
+        "source": "FDA GRAS List"
+      }
+    }
+  },
+  
+  "nutrition": {
+    "sugar_per_serving": {
+      "unit": "grams",
+      "thresholds": {
+        "excellent": {
+          "max": 5,
+          "score": 100,
+          "description": "Low sugar, appropriate for daily consumption"
+        },
+        "good": {
+          "min": 5,
+          "max": 10,
+          "score": 80,
+          "description": "Moderate sugar, acceptable occasionally"
+        },
+        "fair": {
+          "min": 10,
+          "max": 15,
+          "score": 60,
+          "description": "High sugar, limit frequency"
+        },
+        "poor": {
+          "min": 15,
+          "max": 20,
+          "score": 40,
+          "description": "Very high sugar, occasional treat only"
+        },
+        "concerning": {
+          "min": 20,
+          "score": 20,
+          "description": "Excessive sugar, avoid for regular consumption"
+        }
+      },
+      "daily_limit": {
+        "children_2_18": 25,
+        "source": "AHA Guidelines 2016"
+      }
+    },
+    "sodium_per_serving": {
+      "unit": "milligrams",
+      "thresholds": {
+        "excellent": {
+          "max": 200,
+          "score": 100,
+          "description": "Low sodium"
+        },
+        "good": {
+          "min": 200,
+          "max": 400,
+          "score": 80,
+          "description": "Moderate sodium"
+        },
+        "fair": {
+          "min": 400,
+          "max": 600,
+          "score": 60,
+          "description": "High sodium"
+        },
+        "concerning": {
+          "min": 600,
+          "score": 30,
+          "description": "Very high sodium"
+        }
+      },
+      "daily_limit": {
+        "children_4_8": 1900,
+        "children_9_13": 2200,
+        "children_14_18": 2300,
+        "source": "USDA Dietary Guidelines 2020-2025"
+      }
+    },
+    "beneficial_ingredients": {
+      "whole_grains": {
+        "score_bonus": 10,
+        "reason": "Good source of fiber and nutrients"
+      },
+      "protein": {
+        "score_bonus": 10,
+        "reason": "Essential for growth and development",
+        "minimum_per_serving": 5
+      },
+      "fiber": {
+        "score_bonus": 10,
+        "reason": "Supports digestive health",
+        "minimum_per_serving": 3
+      },
+      "vitamins_minerals": {
+        "score_bonus": 5,
+        "reason": "Fortified with essential nutrients"
+      }
+    },
+    "concerning_ingredients": {
+      "trans_fats": {
+        "score_deduction": 20,
+        "severity": "high",
+        "reason": "Linked to heart disease, banned in many countries",
+        "indicators": ["partially hydrogenated oil", "hydrogenated oil"]
+      },
+      "refined_grains": {
+        "score_deduction": 10,
+        "severity": "low",
+        "reason": "Lower nutritional value compared to whole grains",
+        "indicators": ["enriched flour", "refined flour", "white flour"]
+      },
+      "high_fructose_corn_syrup": {
+        "score_deduction": 15,
+        "severity": "moderate",
+        "reason": "Linked to obesity and metabolic issues",
+        "alternative_names": ["HFCS", "corn syrup", "glucose-fructose"]
+      }
+    }
+  },
+  
+  "physical_safety": {
+    "choking_hazards": {
+      "high_risk": {
+        "score": 30,
+        "items": ["whole nuts", "hard candies", "popcorn kernels", "raw carrot chunks", "whole grapes"],
+        "reason": "Size, shape, or hardness presents significant choking risk",
+        "age_recommendation": "Avoid for children under 4 years"
+      },
+      "moderate_risk": {
+        "score": 60,
+        "items": ["nut pieces", "tough meats", "large seeds", "dried fruits"],
+        "reason": "Texture or size requires careful monitoring",
+        "age_recommendation": "Supervise children under 5 years"
+      },
+      "low_risk": {
+        "score": 90,
+        "items": ["soft foods", "pureed foods", "age-appropriate textures"],
+        "reason": "Minimal choking concern",
+        "age_recommendation": "Generally safe for all ages"
+      }
+    },
+    "texture_concerns": {
+      "sticky": {
+        "score_deduction": 10,
+        "reason": "Can adhere to throat, challenging for young children",
+        "examples": ["peanut butter", "caramel", "taffy"]
+      },
+      "hard": {
+        "score_deduction": 20,
+        "reason": "Difficult to break down, choking hazard",
+        "examples": ["hard candies", "ice cubes", "raw vegetables"]
+      },
+      "round_smooth": {
+        "score_deduction": 15,
+        "reason": "Shape can block airway",
+        "examples": ["whole grapes", "cherry tomatoes", "hot dogs"]
+      }
+    }
+  },
+  
+  "score_interpretation": {
+    "ranges": {
+      "excellent": {
+        "min": 90,
+        "max": 100,
+        "color": "green",
+        "label": "Excellent",
+        "recommendation": "Highly recommended for children, safe for regular consumption"
+      },
+      "good": {
+        "min": 75,
+        "max": 89,
+        "color": "light_green",
+        "label": "Good",
+        "recommendation": "Generally safe with minor concerns, suitable for regular consumption"
+      },
+      "fair": {
+        "min": 60,
+        "max": 74,
+        "color": "yellow",
+        "label": "Fair",
+        "recommendation": "Acceptable occasionally, not recommended for daily consumption"
+      },
+      "poor": {
+        "min": 40,
+        "max": 59,
+        "color": "orange",
+        "label": "Poor",
+        "recommendation": "Not recommended, multiple health concerns present"
+      },
+      "concerning": {
+        "min": 0,
+        "max": 39,
+        "color": "red",
+        "label": "Concerning",
+        "recommendation": "Avoid - significant health or safety risks identified"
+      }
+    }
+  }
+}
+
