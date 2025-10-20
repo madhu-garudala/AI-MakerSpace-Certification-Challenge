@@ -18,7 +18,58 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="card">
+            <!-- API Configuration Card -->
+            <div class="card" id="config-card">
+                <div class="card-header">
+                    <h2>🔑 API Configuration</h2>
+                    <p>Configure your API keys to enable ingredient analysis</p>
+                </div>
+                
+                <div class="card-body">
+                    <div class="api-keys-form">
+                        <div class="form-group">
+                            <label for="openai-key">OpenAI API Key <span class="required">*</span></label>
+                            <input type="password" id="openai-key" placeholder="sk-...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="langsmith-key">LangSmith API Key <span class="required">*</span></label>
+                            <input type="password" id="langsmith-key" placeholder="ls_...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cohere-key">Cohere API Key</label>
+                            <input type="password" id="cohere-key" placeholder="For advanced retrieval">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tavily-key">Tavily API Key</label>
+                            <input type="password" id="tavily-key" placeholder="For web search">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="retrieval-strategy">Retrieval Strategy <span class="required">*</span></label>
+                            <select id="retrieval-strategy" class="strategy-select">
+                                <option value="ensemble" selected>Ensemble (Recommended) - Combines multiple strategies</option>
+                                <option value="naive">Naive - Simple vector search (baseline)</option>
+                                <option value="bm25">BM25 - Keyword-based search</option>
+                                <option value="multi_query">Multi-Query - LLM query expansion</option>
+                                <option value="compression">Compression - Cohere reranking (requires Cohere key)</option>
+                            </select>
+                        </div>
+                        
+                        <button id="configure-btn" class="configure-btn">
+                            Initialize System
+                            <span class="btn-icon">🚀</span>
+                        </button>
+                        
+                        <div id="config-status" class="status-message"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cereal Selection Card -->
+            <div class="card" id="selection-card" style="opacity: 0.5; pointer-events: none;">
                 <div class="card-header">
                     <h2>Select a Cereal Product</h2>
                     <p>Choose from our database to analyze ingredients</p>
@@ -33,7 +84,7 @@
                         <select id="cereal-select" class="cereal-select">
                             <option value="">-- Choose a cereal --</option>
                             {% for cereal in cereals %}
-                            <option value="{{ cereal }}">{{ cereal }}</option>
+                            <option value="{{ cereal.brand }}" data-ingredients="{{ cereal.ingredients }}">{{ cereal.brand }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -48,6 +99,23 @@
                             <span class="btn-icon">→</span>
                         </button>
                     </div>
+                    
+                    <div id="analysis-loading" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing ingredients... This may take up to 10 seconds</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Analysis Results Card -->
+            <div class="card" id="results-card" style="display: none;">
+                <div class="card-header">
+                    <h2>📊 Analysis Results</h2>
+                    <p id="result-cereal-name"></p>
+                </div>
+                
+                <div class="card-body">
+                    <div id="analysis-results" class="analysis-results"></div>
                 </div>
             </div>
         </main>

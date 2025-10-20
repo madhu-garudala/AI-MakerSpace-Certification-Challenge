@@ -300,6 +300,239 @@ body {
     font-weight: 500;
 }
 
+/* API Configuration Form */
+.api-keys-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-group label .required {
+    color: var(--danger-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-white);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-group input::placeholder {
+    color: var(--text-light);
+}
+
+.form-group select.strategy-select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-white);
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 20px;
+    padding-right: 3rem;
+}
+
+.form-group select.strategy-select:hover {
+    border-color: var(--primary-color);
+}
+
+.form-group select.strategy-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Configure Button */
+.configure-btn {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-md);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+}
+
+.configure-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.configure-btn:active {
+    transform: translateY(0);
+}
+
+.configure-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Status Messages */
+.status-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: center;
+    display: none;
+}
+
+.status-message.show {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.status-message.success {
+    background: #D1FAE5;
+    color: #065F46;
+    border: 1px solid #6EE7B7;
+}
+
+.status-message.error {
+    background: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FCA5A5;
+}
+
+.status-message.info {
+    background: #DBEAFE;
+    color: #1E40AF;
+    border: 1px solid #93C5FD;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading Spinner */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1rem;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+
+/* Analysis Results */
+.analysis-results {
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+.analysis-results h3 {
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.analysis-results h3:first-child {
+    margin-top: 0;
+}
+
+.analysis-results p {
+    margin-bottom: 1rem;
+}
+
+.analysis-results ul, .analysis-results ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.analysis-results li {
+    margin-bottom: 0.5rem;
+}
+
+.analysis-results strong {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.analysis-results em {
+    color: var(--text-medium);
+}
+
+/* Ingredient Badge Styles */
+.ingredient-good {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.ingredient-bad {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+.ingredient-neutral {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+#result-cereal-name {
+    font-weight: 600;
+    opacity: 0.95;
+}
+
 /* Footer */
 .footer {
     text-align: center;

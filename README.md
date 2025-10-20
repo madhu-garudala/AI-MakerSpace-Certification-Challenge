@@ -47,13 +47,17 @@ Web application where parents manually input ingredient lists to receive:
 ## Technology Stack
 
 This project is being built as part of the AI Engineering Bootcamp Cohort 8 Certification Challenge, implementing:
-- Agentic RAG (Retrieval-Augmented Generation)
-- Advanced retrieval techniques
-- Systematic evaluation using RAGAS framework
-- Production-grade AI application architecture
+- **LangGraph** for RAG workflow orchestration
+- **Advanced retrieval strategies**: Naive, BM25, Multi-Query, Compression, Ensemble
+- **Qdrant** vector database for semantic search
+- **RAGAS** framework for systematic evaluation
+- Production-grade AI application architecture with full observability
 
 ## Documentation
 
+- See `QUICKSTART.md` for how to run the application
+- See `ADVANCED_RETRIEVAL.md` for retrieval strategies guide
+- See `IMPLEMENTATION_SUMMARY.md` for what has been built
 - See `docs/certification-challenge-plan.md` for complete certification challenge deliverables
 - See `docs/architecture.md` for technical architecture decisions
 - See `CLAUDE.md` for development guidelines
