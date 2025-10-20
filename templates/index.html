@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidSafe Food Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Banner -->
+        <header class="banner">
+            <div class="banner-icon">🍎</div>
+            <h1 class="banner-title">KidSafe Food Analyzer</h1>
+            <p class="banner-subtitle">Helping parents make informed decisions about their children's food</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Select a Cereal Product</h2>
+                    <p>Choose from our database to analyze ingredients</p>
+                </div>
+                
+                <div class="card-body">
+                    <div class="select-wrapper">
+                        <label for="cereal-select" class="select-label">
+                            <span class="label-icon">📦</span>
+                            Select Cereal Brand
+                        </label>
+                        <select id="cereal-select" class="cereal-select">
+                            <option value="">-- Choose a cereal --</option>
+                            {% for cereal in cereals %}
+                            <option value="{{ cereal }}">{{ cereal }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div id="selected-info" class="selected-info" style="display: none;">
+                        <div class="info-badge">
+                            <span class="badge-icon">✓</span>
+                            <span id="selected-cereal-name"></span>
+                        </div>
+                        <button id="analyze-btn" class="analyze-btn">
+                            Analyze Ingredients
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>AI-powered food safety analysis for concerned parents</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
