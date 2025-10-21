@@ -125,12 +125,6 @@ Final Score = (Allergen × 0.30) + (Additive × 0.25) + (Nutrition × 0.25) + (S
 - Metadata filtering allows agents to query relevant document types only
 - Optimal balance: enough context without overwhelming LLM
 
-### Scoring Rubric
-Stored in `src/scoring/config/scoring_rubric.json` (see `docs/scoring-rubric-example.json`)
-- Ingredient safety classifications (safe → dangerous)
-- Severity scores with evidence references
-- Allergen deductions, additive scores, nutritional thresholds
-- Transparent, auditable, version-controlled
 
 ---
 
@@ -395,7 +389,6 @@ streamlit run main.py
 - `docs/certification-challenge-plan.md` - Full detailed plan
 - `docs/architecture.md` - Technical architecture
 - `docs/NEXT_STEPS.md` - Implementation roadmap
-- `docs/scoring-rubric-example.json` - Scoring configuration
 
 ### Key Commands
 ```bash
